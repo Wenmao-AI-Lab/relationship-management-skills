@@ -1,0 +1,307 @@
+【所属分类】关系维护 · 关系工具
+【技能名称】GiftDrop礼物API
+【技能标识】giftdrop
+【功能描述】GiftDrop Skill。Send and claim crypto red packets on Solana via the GiftDrop API. Humans and AI Agents are equal participants — wallets don't care who holds the private key.
+【详细概述】
+# GiftDrop礼物API
+**一句话定位：**GiftDrop Skill。Send and claim crypto red packets on Solana via the GiftDrop API. Humans and AI Agents are equal participants — wallets don't care who holds the private key.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# GiftDrop Skill
+
+Send and claim crypto red packets on Solana via the GiftDrop API. Humans and AI Agents are equal participants — wallets don't care who holds the private key.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Prerequisites
+
+- A Solana wallet keypair (for signing transactions and API key registration)
+- An API key from GiftDrop (register via wallet signature)
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## API Base URL
+
+```
+https://giftdrop.fun/api/v1
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Authentication
+
+All requests require an `X-API-Key` header:
+```
+X-API-Key: gd_<your_key>
+```
+
+Key format: `gd_` + 32 hex chars (35 chars total).
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### Register an API Key
+
+Sign a message with your Solana wallet to get an API key. The message must:
+- Contain "GiftDrop API Key"
+- Contain an ISO timestamp within 5 minutes of current time
+- Each signature can only be used once
+
+```bash
+MESSAGE="GiftDrop API Key request at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+curl -X POST https://giftdrop.fun/api/v1/keys \
+  -H "Content-Type: application/json" \
+  -d '{
+    "wallet": "<WALLET_ADDRESS>",
+    "signature": "<BASE64_ED25519_SIGNATURE_OF_MESSAGE>",
+    "message": "'"$MESSAGE"'"
+  }'
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Save this key! It won't be shown again.
+
+```
+
+Max 3 keys per wallet. Max 10 registration attempts per IP per hour.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### Create a Gift Drop
+
+1. Send SOL/SPL tokens to host wallet: `3sZVJLG64tGyAzfNNau3nks7i44oVR6fAmoAjF5A5b7N`
+   - For SPL tokens, also send 0.003 SOL × totalClaims as gas reserve
+2. Register the gift drop:
+
+```bash
+curl -X POST https://giftdrop.fun/api/v1/gift \
+  -H "X-API-Key: gd_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "fundingTx": "<SOLANA_TX_SIGNATURE>",
+    "totalAmount": 1.0,
+    "totalClaims": 10,
+    "tokenSymbol": "SOL",
+    "tokenMint": "So11111111111111111111111111111111111111112",
+    "decimals": 9,
+    "title": "Happy Birthday!",
+    "luckyBonusPercent": 30,
+    "expiryDays": 7
+  }'
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Response: { "success": true, "id": "gift_...", "url": "https://giftdrop.fun/g/gift_..." }
+
+```
+
+Each funding transaction can only be used once.
+
+**Parameters:**
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| fundingTx | ✅ | string | Solana tx signature (base58, 64-128 chars) |
+| totalAmount | ✅ | number | Total token amount (positive finite) |
+| totalClaims | ✅ | integer | Number of claims (3-100) |
+| tokenSymbol | ✅ | string | Token symbol, max 10 chars |
+| tokenMint | ✅ | string | SPL token mint address (base58) |
+| decimals | | integer | Token decimals, 0-18 (default: 9) |
+| title | | string | Optional title, max 40 chars |
+| password | | string | Password protection, 4-20 chars |
+| passwordHint | | string | Hint for password, max 50 chars |
+| luckyBonusPercent | | integer | Lucky bonus: 0, 30, 50, 70, or 100 (default: 30) |
+| expiryDays | | integer | Expiry: 1, 3, 7, or 30 (default: 7) |
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### Claim a Gift Drop
+
+```bash
+curl -X POST https://giftdrop.fun/api/v1/gift/<GIFT_ID>/claim \
+  -H "X-API-Key: gd_..." \
+  -H "Content-Type: application/json" \
+  -d '{"password": "optional_if_protected"}'
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Response: { "success": true, "amount": 0.15, "isLucky": false, "signature": "..." }
+
+```
+
+Uses the wallet associated with your API key as the claimant.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### Check Gift Drop Status
+
+```bash
+curl https://giftdrop.fun/api/v1/gift/<GIFT_ID> \
+  -H "X-API-Key: gd_..."
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Response: { "success": true, "gift": { "totalAmount": 1.0, "claimed": 3, "remaining": 7, ... } }
+
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### List My Gift Drops
+
+```bash
+curl https://giftdrop.fun/api/v1/gifts \
+  -H "X-API-Key: gd_..."
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Response: { "success": true, "gifts": [...] }
+
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Rate Limits
+
+| Action | Limit |
+|--------|-------|
+| Key registration | 10/hr per IP, 3 keys per wallet |
+| Gift creation | 5/hr per wallet |
+| Claims | 10/min per wallet |
+| General API | 60/min per key |
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Fees
+
+- 1% platform fee (deducted from total amount)
+- SPL tokens: 0.003 SOL × totalClaims as gas reserve
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Token Limits
+
+| Token | Max per drop |
+|-------|-------------|
+| SOL | 10 |
+| USDC | 1,000 |
+| USDT | 1,000 |
+| Others | No limit |
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Error Codes
+
+| Status | Meaning |
+|--------|---------|
+| 400 | Validation error |
+| 401 | Invalid or missing API key |
+| 404 | Gift drop not found |
+| 409 | Duplicate (tx already used, gift already exists) |
+| 410 | Expired or sold out |
+| 429 | Rate limit exceeded |
+| 503 | Service unavailable |
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Example: Full Agent Workflow (Python)
+
+```python
+from solders.keypair import Keypair
+from solders.pubkey import Pubkey
+from solders.transaction import VersionedTransaction
+from solders.message import MessageV0
+from solders.system_program import transfer, TransferParams
+from solders.hash import Hash
+import requests, json, base64, time, struct
+
+API = "https://giftdrop.fun/api/v1"
+HOST = Pubkey.from_string("3sZVJLG64tGyAzfNNau3nks7i44oVR6fAmoAjF5A5b7N")
+SOL_MINT = "So11111111111111111111111111111111111111112"
+RPC = "https://api.mainnet-beta.solana.com"
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Load your keypair
+
+kp = Keypair()  # or Keypair.from_base58_string("your_private_key")
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Step 1: Register API Key
+
+msg = f"GiftDrop API Key request at {time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}"
+sig = kp.sign_message(msg.encode())
+r = requests.post(f"{API}/keys", json={
+    "wallet": str(kp.pubkey()),
+    "signature": base64.b64encode(bytes(sig)).decode(),
+    "message": msg,
+})
+api_key = r.json()["apiKey"]
+headers = {"X-API-Key": api_key, "Content-Type": "application/json"}
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Step 2: Send SOL to host wallet
+
+bh_resp = requests.post(RPC, json={"jsonrpc":"2.0","id":1,"method":"getLatestBlockhash","params":[{"commitment":"finalized"}]})
+blockhash = Hash.from_string(bh_resp.json()["result"]["value"]["blockhash"])
+ix = transfer(TransferParams(from_pubkey=kp.pubkey(), to_pubkey=HOST, lamports=500_000_000))  # 0.5 SOL
+msg = MessageV0.try_compile(kp.pubkey(), [ix], [], blockhash)
+tx = VersionedTransaction(msg, [kp])
+tx_resp = requests.post(RPC, json={"jsonrpc":"2.0","id":1,"method":"sendTransaction","params":[base64.b64encode(bytes(tx)).decode(),{"encoding":"base64"}]})
+funding_tx = tx_resp.json()["result"]
+time.sleep(15)  # wait for confirmation
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Step 3: Create gift drop
+
+r = requests.post(f"{API}/gift", headers=headers, json={
+    "fundingTx": funding_tx,
+    "totalAmount": 0.5,
+    "totalClaims": 10,
+    "tokenSymbol": "SOL",
+    "tokenMint": SOL_MINT,
+    "title": "Agent Gift 🤖",
+})
+gift = r.json()
+print(f"Gift URL: {gift['url']}")
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Step 4: Check status
+
+r = requests.get(f"{API}/gift/{gift['id']}", headers=headers)
+print(r.json())
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Step 5: Claim (with a different wallet/key)
+
+r = requests.post(f"{API}/gift/{gift['id']}/claim", headers=headers)
+print(r.json())
+```
+
+【安装方式】（三步安装 · 复制文件夹即用）
+  只需三步，即可把本技能装进AI对话框直接使用：
+
+  第1步｜复制技能文件夹：找到本技能所在的文件夹，
+       右键 → 复制路径（或直接复制整个文件夹）。
+
+  第2步｜放入智能体对话框：把复制好的文件夹路径粘贴到对话框里
+       （也可以直接把文件夹拖进对话框输入框，和发图片一样）。
+
+  第3步｜输入安装指令，把下面这句话粘贴发送：
+
+  【请解压这个技能包「GiftDrop礼物API」，并安装到技能目录，
+  完成后告诉我，后续对话我会直接使用它。】
+
+  · 等AI回复"安装完成"即可正常使用。
+  · 多个技能一起安装：把多个文件夹路径/文件夹一起放入对话框，
+    再发送："请把上面这些技能包全部解压安装"。
+  · 安装后直接描述需求，AI会自动调用本技能。
+
+【使用说明】
+  · 本技能包由「淘宝店：AI灵匣」整理提供，安装后即可通过自然语言触发。
+  · 具体功能以技能包内 SKILL.md 为准，如有问题可重新安装。

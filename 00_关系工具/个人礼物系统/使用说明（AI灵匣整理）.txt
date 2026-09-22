@@ -1,0 +1,208 @@
+【所属分类】关系维护 · 关系工具
+【技能名称】个人礼物系统
+【技能标识】Gifts
+【功能描述】Build a personal gift system for tracking ideas, occasions, and gift-giving history.
+【详细概述】
+# 个人礼物系统
+**一句话定位：**Build a personal gift system for tracking ideas, occasions, and gift-giving history.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Core Behavior
+
+- User mentions gift idea → save to person's file
+- User asks what to gift → check saved ideas first
+- User gives/receives gift → log for future reference
+- Create `~/gifts/` as workspace
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## File Structure
+
+```
+~/gifts/
+├── people/
+│   ├── mom.md
+│   └── sarah.md
+├── occasions/
+│   └── birthdays.md
+├── given/
+│   └── 2024.md
+├── ideas/
+│   └── generic.md
+└── my-wishlist.md
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Person File
+
+```markdown
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Basics
+
+Birthday: March 15
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Interests
+
+Cooking (Italian), yoga, true crime podcasts
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Sizes
+
+Clothing: M, Shoes: 38 EU
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Ideas Backlog
+
+- Le Creuset dutch oven (mentioned wanting)
+- That cookbook she keeps referencing
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Given History
+
+- 2024: Knife set — loved it
+- 2023: Cooking class — went together
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Avoid
+
+Candles (has too many)
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Capturing Ideas
+
+When user mentions someone wants something:
+- Save immediately with context
+- Note source: "mentioned while cooking" or "saw her eyeing it"
+- Casual mentions = best gifts later
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Occasions Calendar
+
+```markdown
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## March
+
+- Sarah: 15th
+- Mom: 22nd
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Gift History
+
+```markdown
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Sarah — Birthday
+
+Knife set, $120 — loved it, uses daily
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Mom — Mother's Day
+
+Spa day — went together
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Generic Ideas Bank
+
+```markdown
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Safe Options
+
+Nice candle, quality chocolates, gift card
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Experiences
+
+Concert tickets, cooking class, spa day
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## My Wishlist
+
+```markdown
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Want
+
+- AirPods Max
+- Leather weekender bag
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Sizes & Notes
+
+L shirts, 10 US shoes
+Avoid: cologne, novelty items
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## What To Surface
+
+- "Sarah's birthday is in 2 weeks"
+- "You saved an idea for her last month"
+- "Last year you gave her X, went well"
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Progressive Enhancement
+
+- Start: add closest people with birthdays
+- Ongoing: capture ideas when mentioned
+- After giving: log reaction
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## What NOT To Do
+
+- Suggest generic gifts without checking their file
+- Forget to log gifts (prevents repeats)
+- Miss capturing "I want that" moments
+
+【安装方式】（三步安装 · 复制文件夹即用）
+  只需三步，即可把本技能装进AI对话框直接使用：
+
+  第1步｜复制技能文件夹：找到本技能所在的文件夹，
+       右键 → 复制路径（或直接复制整个文件夹）。
+
+  第2步｜放入智能体对话框：把复制好的文件夹路径粘贴到对话框里
+       （也可以直接把文件夹拖进对话框输入框，和发图片一样）。
+
+  第3步｜输入安装指令，把下面这句话粘贴发送：
+
+  【请解压这个技能包「个人礼物系统」，并安装到技能目录，
+  完成后告诉我，后续对话我会直接使用它。】
+
+  · 等AI回复"安装完成"即可正常使用。
+  · 多个技能一起安装：把多个文件夹路径/文件夹一起放入对话框，
+    再发送："请把上面这些技能包全部解压安装"。
+  · 安装后直接描述需求，AI会自动调用本技能。
+
+【使用说明】
+  · 本技能包由「淘宝店：AI灵匣」整理提供，安装后即可通过自然语言触发。
+  · 具体功能以技能包内 SKILL.md 为准，如有问题可重新安装。

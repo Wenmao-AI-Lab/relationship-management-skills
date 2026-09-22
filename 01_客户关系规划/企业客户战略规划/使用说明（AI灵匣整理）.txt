@@ -1,0 +1,251 @@
+【所属分类】关系维护 · 客户关系规划
+【技能名称】企业客户战略规划
+【技能标识】gtm-enterprise-account-planning
+【功能描述】Strategic account planning and execution for enterprise deals. Use when planning complex sales cycles, managing multiple stakeholders, applying MEDDICC qualification, tracking deal 当用户需要处理相关业务场景时使用。
+【详细概述】
+# 企业客户战略规划
+**一句话定位：**Strategic account planning and execution for enterprise deals. Use when planning complex sales cycles, managing multiple stakeholders, applying MEDDICC qualification, tracking deal 当用户需要处理相关业务场景时使用。
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Enterprise Account Planning
+
+Strategic account planning and execution for enterprise deals. Turn complex sales cycles into systematic wins — or at least know when they're dying before you waste months.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## When to Use
+
+**Triggers:**
+- "How do I plan this enterprise deal?"
+- "This deal has been in motion 3 months, why isn't it closing?"
+- "Should I create a full account plan or simplified version?"
+- "How do I know if this deal is actually moving?"
+- "MEDDICC qualification"
+- "Building a mutual action plan"
+
+**Context:**
+- Strategic deals above your average ACV
+- Multiple stakeholders involved
+- Sales cycle exceeds 60 days
+- Complex buying process (legal, procurement, security)
+- Enterprise or mid-market accounts
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### 1. If Your MAP Hasn't Been Updated in 3 Weeks, That Deal Is Dead
+
+**The Pattern I've Seen:**
+
+The Mutual Action Plan (MAP) is the single best indicator of deal health. Not pipeline stage. Not verbal commitments. Not "they love the product."
+
+**The MAP tells you everything:**
+
+**Healthy deal:**
+- MAP updated weekly
+- Customer adding their own action items
+- Both sides completing tasks on schedule
+- New stakeholders appearing in MAP
+- Dates moving up (not pushed out)
+
+**Dying deal:**
+- MAP last updated 3+ weeks ago
+- Only your side has action items
+- Customer tasks marked "pending" for weeks
+- No new stakeholders engaged
+- All dates in the past
+
+**Why This Happens:**
+
+When a deal is real, the customer wants it to happen. They're doing work. They're involving stakeholders. They're moving through their process.
+
+When a deal is dying, you're doing all the work. They're "too busy." They'll "get back to you next week." The economic buyer is "traveling."
+
+**The 3-Week Rule:**
+
+If your MAP hasn't been updated in 3 weeks, the deal is dead — you just don't know it yet. **I've never seen a deal close with a stale MAP. Not once in 11 years.**
+
+**What to Do:**
+
+**Week 1 of silence:** Send MAP update: "Here's what we've completed. What's your status on [specific customer action]?"
+
+**Week 2 of silence:** Escalate to champion: "Haven't heard back on MAP. Are we still on track for [date]? If priorities shifted, let me know."
+
+**Week 3 of silence:** Qualify out or reset: "It seems like timing might not be right. Should we pause and reconnect in [timeframe], or is there a blocker I can help with?"
+
+**Common Mistake:**
+
+Keeping deals in pipeline because "they said they want it." Verbal interest ≠ action. If they're not doing work, they're not buying.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### 2. The EB Discovery Problem (And Why Deals Die at Week 8)
+
+**The Pattern:**
+
+You're 8 weeks into a deal. POC went great. Champion loves you. Technical validation complete. You send the proposal.
+
+Then: radio silence.
+
+**What happened?** You never met the Economic Buyer.
+
+**The Economic Buyer (EB) is the person who:**
+- Controls budget allocation
+- Makes final purchase decision
+- Signs the contract
+
+**Not:**
+- Your champion (they influence, don't decide)
+- The technical lead (they validate, don't buy)
+- The VP who attended one demo (they advise, don't sign)
+
+**Why Deals Die Without EB Access:**
+
+You built the business case with your champion's assumptions. But the EB has different priorities:
+- Champion cares about: solving their team's pain
+- EB cares about: ROI, risk mitigation, strategic alignment
+
+When you send proposal to EB through the champion, EB sees:
+- Price tag with no context
+- Solution to a problem they didn't articulate
+- Risk they haven't evaluated
+
+**Result:** Deal stalls or dies.
+
+**The Framework: EB Validation Checklist**
+
+Before sending proposal, validate:
+
+- [ ] Have you identified the EB? (Name, title, confirmed by champion)
+- [ ] Have you met the EB? (Video call minimum, in-person ideal)
+- [ ] Does EB agree on the problem? (In their words, not yours)
+- [ ] Does EB agree on success metrics? (How they'll measure ROI)
+- [ ] Does EB know the price range? (Ballpark discussed, not surprised)
+- [ ] Does EB understand timeline? (Implementation, go-live, value realization)
+
+**If you answered "no" to any, don't send the proposal yet.**
+
+**How to Get EB Access:**
+
+**Ask your champion:**
+"Before we finalize pricing, I'd love 15 minutes with [EB name] to make sure we're aligned on outcomes and timeline. Can you intro us?"
+
+**If champion blocks:** "I can handle that, you don't need to talk to them"
+→ This is a red flag. Either champion doesn't have access (not a real champion) or they're afraid EB will kill the deal (which means deal is weak).
+
+**Push back:**
+"I totally understand. At the same time, I want to make sure [EB] sees the full value before seeing the price. In my experience, when economic buyers aren't involved early, deals get delayed in procurement. Can we do a quick alignment call?"
+
+**Common Mistake:**
+
+Treating EB meeting as "nice to have." It's mandatory for any deal >$50K. No EB access = no deal.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### 3. Personal Win Mapping (People Buy for Themselves)
+
+**The Pattern:**
+
+Enterprise software purchases are made by committees. But committees don't buy. **People buy.**
+
+And people buy for personal reasons:
+- Career advancement
+- Looking good to their boss
+- Reducing their workload
+- Covering their ass (CYA)
+- Proving they were right
+- Not looking stupid
+
+**Framework: Personal Win Identification**
+
+For each stakeholder, map:
+
+**Professional Win:**
+- What do they get credit for if this succeeds?
+- What pain goes away for them personally?
+- How does this make them look good?
+
+**Professional Risk:**
+- What happens to them if this fails?
+- What's their reputation cost if this goes wrong?
+- Who's skeptical of them internally?
+
+**Personal Motivations:**
+- Are they new in role? (Need quick wins)
+- Facing budget cuts? (Need to justify spend)
+- Up for promotion? (Need visible success)
+- Burned by vendors before? (Extra risk-averse)
+
+**Example: VP of Engineering**
+
+**Professional Win:**
+- Reduce on-call burden for team (they'll stop complaining to her)
+- Faster incident response (looks good in QBRs)
+- Attract better eng talent (modern tooling)
+
+**Professional Risk:**
+- Team rejects new tool (she forced it on them)
+- Migration goes badly (downtime, incidents)
+- Vendor fails (she picked them)
+
+**Personal Motivations:**
+- New in role (6 months), needs wins
+- Under pressure to improve uptime metrics
+- Previous monitoring tool she picked failed
+
+**How This Changes Your Pitch:**
+
+**Generic pitch:**
+"Our platform improves incident response time by 40%."
+
+**Personal win pitch:**
+"You mentioned the on-call burden is burning out your team. We've seen teams reduce on-call pages by 40% in the first month, which helps with retention. And since you're focused on uptime metrics for the board, the improved response time shows up immediately in your QBR dashboards."
+
+**The Difference:**
+
+Generic = business case
+Personal = career case
+
+Both matter. But personal wins close deals.
+
+**Common Mistake:**
+
+Selling only to the business problem. "This saves money. This improves efficiency." That's necessary but not sufficient. **People need to see what's in it for them personally.**
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### 4. Enterprise Account Plan Structure (Four Components)
+
+A complete account plan has four interconnected pieces. Each feeds the others.
+
+**Component 1: Account Summary**
+- Company basics (HQ, size, industry, subsidiaries)
+- Technical landscape (infrastructure, tools, platforms)
+- Top corporate initiatives (from press, annual reports, LinkedIn)
+- Hypothesis: "How can we help?" (write this before engaging)
+- LinkedIn keyword analysis (quantify their investment in your domain)
+
+…（内容较长，已截取核心部分，详见技能包内 SKILL.md）
+
+【安装方式】（三步安装 · 复制文件夹即用）
+  只需三步，即可把本技能装进AI对话框直接使用：
+
+  第1步｜复制技能文件夹：找到本技能所在的文件夹，
+       右键 → 复制路径（或直接复制整个文件夹）。
+
+  第2步｜放入智能体对话框：把复制好的文件夹路径粘贴到对话框里
+       （也可以直接把文件夹拖进对话框输入框，和发图片一样）。
+
+  第3步｜输入安装指令，把下面这句话粘贴发送：
+
+  【请解压这个技能包「企业客户战略规划」，并安装到技能目录，
+  完成后告诉我，后续对话我会直接使用它。】
+
+  · 等AI回复"安装完成"即可正常使用。
+  · 多个技能一起安装：把多个文件夹路径/文件夹一起放入对话框，
+    再发送："请把上面这些技能包全部解压安装"。
+  · 安装后直接描述需求，AI会自动调用本技能。
+
+【使用说明】
+  · 本技能包由「淘宝店：AI灵匣」整理提供，安装后即可通过自然语言触发。
+  · 具体功能以技能包内 SKILL.md 为准，如有问题可重新安装。

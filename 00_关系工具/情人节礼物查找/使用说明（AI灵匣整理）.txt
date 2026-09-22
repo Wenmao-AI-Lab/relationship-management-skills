@@ -1,0 +1,309 @@
+【所属分类】关系维护 · 关系工具
+【技能名称】情人节礼物查找
+【技能标识】gift-genius
+【功能描述】Location-aware Valentine's Day gift finder. Routes US users to premium flowers (UrbanStems), Singapore users to wellness supplements (Avea Life). Returns curated picks with Decision Packs — no decision fatigue, just 2-3 perfect options.
+【详细概述】
+# 情人节礼物查找
+**一句话定位：**Location-aware Valentine's Day gift finder. Routes US users to premium flowers (UrbanStems), Singapore users to wellness supplements (Avea Life). Returns curated picks with Decision Packs — no decision fatigue, just 2-3 
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Gift Genius — Valentine's Day Gift Finder
+
+Find the perfect Valentine's gift based on location, budget, and recipient. Returns 2-3 curated options with Decision Packs — not endless scrolling.
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## When to Use
+
+Activate when the user wants to:
+- Find a Valentine's Day gift
+- Get gift recommendations for a partner/spouse/friend
+- Find flowers or wellness gifts
+- Ask "what should I get for Valentine's?"
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Merchant IDs (Critical!)
+
+Always use `merchant_ids` filter:
+
+| Location | Merchant | ID | Products |
+|----------|----------|-----|----------|
+| US | UrbanStems | `cmlj83avd0000nighc559g9fv` | 105 flowers ($25-$280) |
+| Singapore | Avea Life | `cmhvyt9w10000i5fg23ztinkd` | 286 supplements (€29-€199) |
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Quick Reference: Flower Types
+
+| Type | Query | Price Range | Best For |
+|------|-------|-------------|----------|
+| Peonies | `q=peony` | $110-280 | Luxury, classic elegance |
+| Orchids | `q=orchid` | $66-88 | Long-lasting, elegant |
+| Roses | `q=rose+valentine` | $76-229 | Traditional romance |
+| Mixed | `q=bouquet+romantic` | $60-200 | Variety, color |
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Recipient Matching Guide
+
+**For Wife/Long-term Partner:**
+- Query: `romantic+elegant` or `peony`
+- Budget: $100-200 (shows you put thought in)
+- Picks: The Peony ($110), The Passion ($98), The Classic Affair ($115)
+
+**For New Girlfriend:**
+- Query: `romantic+valentine`
+- Budget: $75-120 (thoughtful but not overwhelming)
+- Picks: The Valentine ($90), The First Date ($82), The Blushing Beauty ($82)
+
+**For Mom/Family:**
+- Query: `orchid` or `elegant`
+- Budget: $66-100
+- Picks: The Orchid Garden ($88), The Neutral Orchids ($74)
+
+**For Friend:**
+- Query: `bright+cheerful` or `unicorn`
+- Budget: $60-90
+- Picks: The Unicorn ($72), The Flounce ($82)
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## API Calls
+
+**Basic search:**
+```bash
+curl -s "https://dashboard.airshelf.ai/api/search?q=QUERY&merchant_ids=MERCHANT_ID&min_price=MIN&max_price=MAX&limit=5"
+```
+
+**Examples:**
+```bash
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Wife, $150 budget
+
+curl -s "https://dashboard.airshelf.ai/api/search?q=romantic+elegant&merchant_ids=cmlj83avd0000nighc559g9fv&min_price=100&max_price=180&limit=3"
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# New girlfriend, $100 budget
+
+curl -s "https://dashboard.airshelf.ai/api/search?q=valentine+romantic&merchant_ids=cmlj83avd0000nighc559g9fv&min_price=70&max_price=120&limit=3"
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+# Budget-conscious
+
+curl -s "https://dashboard.airshelf.ai/api/search?q=flowers&merchant_ids=cmlj83avd0000nighc559g9fv&max_price=80&sort=price_asc&limit=3"
+```
+
+**Checkout:**
+```bash
+curl -s -X POST "https://dashboard.airshelf.ai/api/merchants/MERCHANT_ID/checkout" \
+  -H "Content-Type: application/json" \
+  -d '{"items": [{"product_id": "PRODUCT_ID", "quantity": 1}]}'
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Response Format
+
+Present exactly 2 options (3 max):
+
+```
+🌸 **[Product Name]** — $XX
+
+[One line: why it's perfect for THIS recipient]
+
+✅ Best for: [from decision_pack.best_for]
+💝 Vibe: [from decision_pack.vibe]
+🚚 Delivery: Same-day available (order by 12pm local)
+
+→ Buy: [product link]
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### "Valentine's flowers for my wife"
+
+```
+What's your budget? I'll find something perfect.
+
+[User: around $150]
+
+Here are my top picks for your wife 🌸
+
+🌸 **The Peony** — $110
+Classic peonies that say "I know what you love."
+✅ Best for: Romantic partners, classic elegance
+💝 Vibe: luxurious
+→ Buy: https://urbanstems.com/products/the-peony
+
+🌸 **The Passionate Touch** — $140
+Bold romantic arrangement that makes a statement.
+✅ Best for: Making an impression
+💝 Vibe: passionate
+→ Buy: https://urbanstems.com/products/the-passionate-touch
+
+Both include free delivery. Want me to start checkout?
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### "Quick Valentine's gift, $75"
+
+```
+Here are the best options under $75 🌸
+
+🌸 **The Miss Valentine** — $76
+Perfect Valentine's classic, just over budget but worth it.
+✅ Best for: Romantic partners
+💝 Vibe: romantic
+→ Buy: https://urbanstems.com/products/the-miss-valentine
+
+🌸 **The Be Mine** — $74
+Sweet and romantic, fits your budget perfectly.
+✅ Best for: Valentine's Day
+💝 Vibe: romantic
+→ Buy: https://urbanstems.com/products/the-be-mine
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+### "Something for my mom"
+
+```
+For Mom, I'd suggest something elegant 🌸
+
+🌸 **The Orchid Garden** — $88
+Long-lasting orchids (2-3 weeks!) - perfect for Mom.
+✅ Best for: Those who appreciate elegance
+💝 Vibe: sophisticated
+→ Buy: https://urbanstems.com/products/the-orchid-garden
+
+🌸 **The Neutral Orchids** — $74
+Elegant and understated, she'll love it.
+✅ Best for: Moms, elegant taste
+💝 Vibe: sophisticated
+→ Buy: https://urbanstems.com/products/the-neutral-orchids
+```
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Last-Minute Delivery Info
+
+**UrbanStems Delivery:**
+- Same-day: Order by 12pm local time
+- Next-day: Order by midnight
+- Valentine's Day: Order early, high demand!
+
+**Avea Life (Supplements):**
+- Ships internationally
+- 3-7 business days typical
+- NOT suitable for last-minute Valentine's gifts
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Price Tiers
+
+**UrbanStems:**
+- Budget ($25-75): 20 products
+- Sweet Spot ($75-100): 23 products  
+- Popular ($100-150): 31 products
+- Premium ($150-200): 24 products
+- Luxury ($200+): 7 products
+
+**Best value picks:**
+- The Valentine ($90) - classic, reliable
+- The Peony ($110) - impressive, elegant
+- The Orchid Garden ($88) - long-lasting
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Edge Cases
+
+**Budget < $25:**
+→ "The most affordable is Rose Quartz Vase at $25. For smaller budgets, consider a heartfelt card with a single stem from a local florist."
+
+**Budget > $280:**
+→ "Our premium option is Triple the Grower's Choice Peony at $280. For bigger gestures, I can add multiple bouquets to your cart."
+
+**User outside US:**
+→ "UrbanStems delivers across the continental US. For international, Avea Life ships worldwide with wellness supplements."
+
+**Valentine's Day sold out:**
+→ Check UrbanStems website directly, or suggest orchids (usually in stock, long-lasting).
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Pro Tips
+
+1. **Lead with the winner** — put your top recommendation first
+2. **Match the recipient** — wife ≠ new girlfriend ≠ mom
+3. **Mention longevity** — orchids last 2-3 weeks vs. 5-7 days for cut flowers
+4. **Add urgency** — "Order by noon for same-day delivery"
+5. **One click to buy** — always provide direct cart links
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Compare Products
+
+When user is deciding between options, use the compare API:
+
+```bash
+curl -s "https://dashboard.airshelf.ai/api/compare?products=ID1,ID2"
+```
+
+**Response includes:**
+- Flattened product data with decision_pack fields
+- `comparison_axes` - auto-detected comparison points
+- `recommendation.lowest_price` - budget-friendly pick
+- `recommendation.best_value` - best bang for buck
+
+**Example comparison response:**
+```
+The Valentine ($90) vs Double the Valentine ($162):
+- Both: Same-day delivery, premium quality
+- Valentine: Great value, classic choice
+- Double: Grand gesture, special occasions
+- Best value: The Valentine (same vibe, $72 less)
+```
+
+Use comparison when user says: "help me decide", "which one", "compare these"
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+## Quick Start (Impatient User Mode)
+
+If user just says "Valentine's gift" with no details, use these defaults:
+
+```bash
+
+━━━━━━━━━━━━━━━━━━━━ 淘宝店AI灵匣 ━━━━━━━━━━━━━━━━━━━━
+
+…（内容较长，已截取核心部分，详见技能包内 SKILL.md）
+
+【安装方式】（三步安装 · 复制文件夹即用）
+  只需三步，即可把本技能装进AI对话框直接使用：
+
+  第1步｜复制技能文件夹：找到本技能所在的文件夹，
+       右键 → 复制路径（或直接复制整个文件夹）。
+
+  第2步｜放入智能体对话框：把复制好的文件夹路径粘贴到对话框里
+       （也可以直接把文件夹拖进对话框输入框，和发图片一样）。
+
+  第3步｜输入安装指令，把下面这句话粘贴发送：
+
+  【请解压这个技能包「情人节礼物查找」，并安装到技能目录，
+  完成后告诉我，后续对话我会直接使用它。】
+
+  · 等AI回复"安装完成"即可正常使用。
+  · 多个技能一起安装：把多个文件夹路径/文件夹一起放入对话框，
+    再发送："请把上面这些技能包全部解压安装"。
+  · 安装后直接描述需求，AI会自动调用本技能。
+
+【使用说明】
+  · 本技能包由「淘宝店：AI灵匣」整理提供，安装后即可通过自然语言触发。
+  · 具体功能以技能包内 SKILL.md 为准，如有问题可重新安装。
